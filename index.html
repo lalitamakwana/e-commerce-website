@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopHub - Modern E-Commerce</title>
+    <!-- Linking external CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header and Navigation -->
+    <header>
+        <a href="/" class="logo" aria-label="ShopHub Home">
+            <h1>ShopHub</h1>
+        </a>
+        
+        <nav aria-label="Main Navigation">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="#deals">Deals</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <div class="header-actions">
+            <form action="/search" method="get" class="search-form" role="search">
+                <input type="search" name="query" placeholder="Search products..." aria-label="Search products" required>
+                <button type="submit" aria-label="Submit Search">
+                    <img src="search-icon.svg" alt="Search">
+                </button>
+            </form>
+            
+            <a href="#account" class="user-account" aria-label="User Account">
+                <img src="user-icon.svg" alt="Account">
+            </a>
+            
+            <a href="#cart" class="cart" aria-label="Shopping Cart">
+                <img src="cart-icon.svg" alt="Cart">
+                <span>(0)</span>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Banner Section -->
+        <section class="hero-banner">
+            <div class="hero-content">
+                <h2>Experience the Future of Shopping</h2>
+                <p>Discover our exclusive collection of premium products at unbeatable prices. Upgrade your lifestyle today.</p>
+                <a href="#shop" class="btn btn-primary">Shop Now</a>
+            </div>
+            <img src="images/hero-shoe.jpg" alt="Featured Product Showcase" class="hero-image">
+        </section>
+
+        <!-- Categories Section -->
+        <section id="categories" class="categories">
+            <h2>Shop by Category</h2>
+            <div class="category-list">
+                <article class="category-item">
+                    <a href="#electronics">
+                        <img src="images/Fashion clothing.jpg" alt="Electronics Category">
+                        <h3>Electronics</h3>
+                    </a>
+                </article>
+                <article class="category-item">
+                    <a href="#fashion">
+                        <img src="images/Fashion clothing.jpg" alt="Fashion Category">
+                        <h3>Fashion</h3>
+                    </a>
+                </article>
+                <article class="category-item">
+                    <a href="#shoes">
+                        <img src="images/Fashion clothing.jpg" alt="Shoes Category">
+                        <h3>Shoes</h3>
+                    </a>
+                </article>
+                <article class="category-item">
+                    <a href="#watches">
+                        <img src="images/Fashion clothing.jpg" alt="Watches Category">
+                        <h3>Watches</h3>
+                    </a>
+                </article>
+                <article class="category-item">
+                    <a href="#home-decor">
+                        <img src="images/Fashion clothing.jpg" alt="Home Decor Category">
+                        <h3>Home Decor</h3>
+                    </a>
+                </article>
+                <article class="category-item">
+                    <a href="#accessories">
+                        <img src="images/Fashion clothing.jpg" alt="Accessories Category">
+                        <h3>Accessories</h3>
+                    </a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Featured Products Section -->
+        <section id="featured" class="featured-products">
+            <h2>Featured Products</h2>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <article class="product-card">
+                    <img src="images/smartwatch.jpg" alt="Wireless Headphones">
+                    <h3>Wireless Headphones</h3>
+                    <div class="rating" aria-label="5 out of 5 stars, 120 reviews">
+                        <span aria-hidden="true">⭐⭐⭐⭐⭐</span> 
+                        <span aria-hidden="true">(120)</span>
+                    </div>
+                    <p class="price">$99.99</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </article>
+
+                <!-- Product 2 -->
+                <article class="product-card">
+                    <img src="images/smartwatch.jpg" alt="Smart Watch">
+                    <h3>Smart Watch</h3>
+                    <div class="rating" aria-label="4 out of 5 stars, 85 reviews">
+                        <span aria-hidden="true">⭐⭐⭐⭐☆</span> 
+                        <span aria-hidden="true">(85)</span>
+                    </div>
+                    <p class="price">$199.99</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </article>
+
+                <!-- Product 3 -->
+                <article class="product-card">
+                    <img src="images/smartwatch.jpg" alt="Running Shoes">
+                    <h3>Running Shoes</h3>
+                    <div class="rating" aria-label="5 out of 5 stars, 340 reviews">
+                        <span aria-hidden="true">⭐⭐⭐⭐⭐</span> 
+                        <span aria-hidden="true">(340)</span>
+                    </div>
+                    <p class="price">$89.99</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </article>
+
+                <!-- Product 4 -->
+                <article class="product-card">
+                    <img src="images/smartwatch.jpg" alt="Backpack">
+                    <h3>Backpack</h3>
+                    <div class="rating" aria-label="4 out of 5 stars, 45 reviews">
+                        <span aria-hidden="true">⭐⭐⭐⭐☆</span> 
+                        <span aria-hidden="true">(45)</span>
+                    </div>
+                    <p class="price">$49.99</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </article>
+
+                <!-- Product 5 -->
+                <article class="product-card">
+                    <img src="images/smartwatch.jpg" alt="Gaming Mouse">
+                    <h3>Gaming Mouse</h3>
+                    <div class="rating" aria-label="5 out of 5 stars, 210 reviews">
+                        <span aria-hidden="true">⭐⭐⭐⭐⭐</span> 
+                        <span aria-hidden="true">(210)</span>
+                    </div>
+                    <p class="price">$59.99</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </article>
+
+                <!-- Product 6 -->
+                <article class="product-card">
+                    <img src="images/smartwatch.jpg" alt="Mechanical Keyboard">
+                    <h3>Mechanical Keyboard</h3>
+                    <div class="rating" aria-label="5 out of 5 stars, 175 reviews">
+                        <span aria-hidden="true">⭐⭐⭐⭐⭐</span> 
+                        <span aria-hidden="true">(175)</span>
+                    </div>
+                    <p class="price">$129.99</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </article>
+
+                <!-- Product 7 -->
+                <article class="product-card">
+                    <img src="images/smartwatch.jpg" alt="Leather Wallet">
+                    <h3>Leather Wallet</h3>
+                    <div class="rating" aria-label="4 out of 5 stars, 90 reviews">
+                        <span aria-hidden="true">⭐⭐⭐⭐☆</span> 
+                        <span aria-hidden="true">(90)</span>
+                    </div>
+                    <p class="price">$29.99</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </article>
+
+                <!-- Product 8 -->
+                <article class="product-card">
+                    <img src="images/smartwatch.jpg" alt="Sunglasses">
+                    <h3>Sunglasses</h3>
+                    <div class="rating" aria-label="4 out of 5 stars, 65 reviews">
+                        <span aria-hidden="true">⭐⭐⭐⭐☆</span> 
+                        <span aria-hidden="true">(65)</span>
+                    </div>
+                    <p class="price">$39.99</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </article>
+            </div>
+        </section>
+
+        <!-- Special Offers Section -->
+        <section id="offers" class="offers">
+            <img src="images/offer-banner.jpg" alt="Mega Clearance Sale Promo" class="offer-image">
+            <div class="offer-content">
+                <h2>Mega Clearance Sale</h2>
+                <h3>Get up to 50% Off!</h3>
+                <p>Upgrade your collection with our exclusive deals. Limited time offer, hurry up and grab your favorites now.</p>
+                <a href="#shop" class="btn btn-promo">Shop Now</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer id="contact">
+        <div class="footer-links">
+            <section class="footer-contact">
+                <h4>Contact Information</h4>
+                <address>
+                    <p>123 Commerce Avenue</p>
+                    <p>Tech City, TC 10100</p>
+                    <p>Email: <a href="mailto:support@shophub.com">support@shophub.com</a></p>
+                    <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                </address>
+            </section>
+            
+            <section class="footer-nav">
+                <h4>Quick Links</h4>
+                <nav aria-label="Footer Quick Links">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#shop">Shop</a></li>
+                        <li><a href="#categories">Categories</a></li>
+                        <li><a href="#deals">Deals</a></li>
+                        <li><a href="#about">About Us</a></li>
+                    </ul>
+                </nav>
+            </section>
+            
+            <section class="footer-support">
+                <h4>Customer Support</h4>
+                <nav aria-label="Footer Customer Support">
+                    <ul>
+                        <li><a href="#">Help Center & FAQs</a></li>
+                        <li><a href="#">Track Your Order</a></li>
+                        <li><a href="#">Returns & Refunds</a></li>
+                        <li><a href="#">Shipping Information</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </nav>
+            </section>
+            
+            <section class="footer-social">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#" aria-label="Follow us on Facebook"><img src="icon-facebook.svg" alt="Facebook Icon"></a>
+                    <a href="#" aria-label="Follow us on Twitter"><img src="icon-twitter.svg" alt="Twitter Icon"></a>
+                    <a href="#" aria-label="Follow us on Instagram"><img src="icon-instagram.svg" alt="Instagram Icon"></a>
+                    <a href="#" aria-label="Subscribe to our YouTube channel"><img src="icon-youtube.svg" alt="YouTube Icon"></a>
+                </div>
+            </section>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 ShopHub. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
