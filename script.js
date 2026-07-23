@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, {
-        threshold: 0.15
+        threshold: 0.02
     });
     animatedElements.forEach(el => observer.observe(el));
     const navLinks = document.querySelectorAll('nav ul li a');
