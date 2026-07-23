@@ -33,7 +33,6 @@
 
 }
 
-html,
 body {
     overflow-x: clip;
     width: 100%;
@@ -261,20 +260,8 @@ input[type="submit"]:active {
 .product-image-wrapper img {
     display: block;
     width: 100%;
-    height: 100%;
+    height: 260px;
     object-fit: cover;
-
-    position: relative;
-    z-index: 1;
-
-    visibility: visible;
-    opacity: 1;
-
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
 }
 
 @media (hover:hover) {
@@ -1488,6 +1475,10 @@ address {
     .product-image-wrapper {
         height: 220px;
 
+    }
+
+    .product-image-wrapper img {
+        height: 220px;
     }
 
     .nav-toggle-label {
