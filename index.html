@@ -48,135 +48,68 @@
                     <i class="fas fa-user-circle" aria-hidden="true"></i>
                 </a>
 
+                <a href="#wishlist" class="wishlist icon-link" aria-label="Wishlist">
+                    <i class="far fa-heart" aria-hidden="true"></i>
+                    <span class="wishlist-badge">0</span>
+                </a>
+
                 <a href="#cart" class="cart icon-link" aria-label="Shopping Cart">
                     <i class="fas fa-shopping-cart" aria-hidden="true"></i>
                     <span class="cart-badge">0</span>
                 </a>
             </div>
         </div>
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                // 1. Subtle Fade-in Animation Observer
-                const animatedElements = document.querySelectorAll('section, footer');
-
-                animatedElements.forEach(el => el.classList.add('fade-in-section'));
-
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('is-visible');
-                            // Optional: Stop observing once it has faded in to keep it visible
-                            // observer.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.15 });
-
-                animatedElements.forEach(el => observer.observe(el));
-
-                // 2. Active Navigation Highlight
-                const navLinks = document.querySelectorAll('nav ul li a');
-                const sections = document.querySelectorAll('section, footer');
-
-                const navObserverOptions = {
-                    root: null,
-                    rootMargin: '-20% 0px -70% 0px',
-                    threshold: 0
-                };
-
-                let activeSections = new Set();
-
-                const navObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        const id = entry.target.getAttribute('id');
-                        if (entry.isIntersecting) {
-                            activeSections.add(id);
-                        } else {
-                            activeSections.delete(id);
-                        }
-                    });
-
-                    // Convert to array to check DOM order
-                    const sectionsArray = Array.from(sections);
-
-                    let current = '';
-                    // Find the last section in DOM order that is currently intersecting
-                    for (let i = sectionsArray.length - 1; i >= 0; i--) {
-                        const id = sectionsArray[i].getAttribute('id');
-                        if (activeSections.has(id)) {
-                            current = id;
-                            break;
-                        }
-                    }
-
-                    // Special rule: if contact (footer) is visible at all, prioritize it
-                    if (activeSections.has('contact')) {
-                        current = 'contact';
-                    }
-
-                    if (current) {
-                        navLinks.forEach(link => {
-                            link.classList.remove('active');
-                            if (link.getAttribute('href') === `#${current}`) {
-                                link.classList.add('active');
-                            }
-                        });
-                    }
-                }, navObserverOptions);
-
-                sections.forEach(sec => navObserver.observe(sec));
-
-                // 3. Smooth Scrolling for all anchor links
-                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                    anchor.addEventListener('click', function (e) {
-                        const targetId = this.getAttribute('href');
-                        if (targetId === '#') return;
-
-                        const targetElement = document.querySelector(targetId);
-                        if (targetElement) {
-                            e.preventDefault();
-
-                            // Close mobile menu if open
-                            const navToggle = document.getElementById('nav-toggle');
-                            if (navToggle && navToggle.checked) {
-                                navToggle.checked = false;
-                            }
-
-                            // Scroll to element with offset for fixed header
-                            const headerOffset = document.querySelector('header').offsetHeight || 80;
-                            const elementPosition = targetElement.getBoundingClientRect().top;
-                            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                            window.scrollTo({
-                                top: offsetPosition,
-                                behavior: 'smooth'
-                            });
-                        }
-                    });
-                });
-            });
-
-            // 4. Scroll listener for sticky header shadow
-            window.addEventListener('scroll', () => {
-                const header = document.querySelector('header');
-                if (window.scrollY > 20) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
-        </script>
+        
     </header>
 
-    <main class="container">
-        <!-- Hero Banner Section -->
-        <section id="home" class="hero-banner">
-            <div class="hero-content">
-                <h2>Experience the Future of Shopping</h2>
-                <p>Discover our exclusive collection of premium products at unbeatable prices. Upgrade your lifestyle
-                    today.</p>
-                <a href="#featured" class="btn btn-primary">Shop Now</a>
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-banner container">
+            <div class="hero-content fade-in-left">
+                <span class="hero-subtitle">NEW COLLECTION 2026</span>
+                <h2>Discover the Best Products Online</h2>
+                <p>Shop the latest trends in electronics, fashion, and accessories. Premium quality, best prices.</p>
+                <a href="#featured" class="btn btn-primary hero-btn">Shop Now <i class="fas fa-arrow-right"
+                        aria-hidden="true" style="margin-left:8px;"></i></a>
             </div>
-            <img src="images/hero-shoe.jpg" alt="Featured Product Showcase" class="hero-image">
+            <div class="hero-image-wrapper fade-in-right">
+                <span class="product-badge badge-sale hero-discount-badge">30% OFF</span>
+                <img src="images/hero-shoe.jpg" alt="Latest premium products collection" class="hero-image">
+            </div>
+        </section>
+
+        <!-- Trust Features Section -->
+        <section class="trust-features container">
+            <div class="trust-features-grid">
+                <div class="trust-item">
+                    <i class="fas fa-truck-fast"></i>
+                    <div class="trust-text">
+                        <h4>Free Shipping</h4>
+                        <p>On orders over ₹399</p>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <i class="fas fa-shield-halved"></i>
+                    <div class="trust-text">
+                        <h4>Secure Payment</h4>
+                        <p>100% secure checkout</p>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <i class="fas fa-rotate-left"></i>
+                    <div class="trust-text">
+                        <h4>Easy Returns</h4>
+                        <p>30-day return policy</p>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <i class="fas fa-headset"></i>
+                    <div class="trust-text">
+                        <h4>24/7 Support</h4>
+                        <p>Dedicated assistance</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Categories Section -->
@@ -185,37 +118,37 @@
             <div class="category-list">
                 <article class="category-item">
                     <a href="#electronics">
-                        <img src="images/electronics.jpg" alt="Electronics Category">
+                        <img src="images/electronics.jpg" alt="Electronics Category" loading="lazy">
                         <h3>Electronics</h3>
                     </a>
                 </article>
                 <article class="category-item">
                     <a href="#fashion">
-                        <img src="images/fashion.jpg" alt="Fashion Category">
+                        <img src="images/fashion.jpg" alt="Fashion Category" loading="lazy">
                         <h3>Fashion</h3>
                     </a>
                 </article>
                 <article class="category-item">
                     <a href="#shoes">
-                        <img src="images/shoes.jpg" alt="Shoes Category">
+                        <img src="images/shoes.jpg" alt="Shoes Category" loading="lazy">
                         <h3>Shoes</h3>
                     </a>
                 </article>
                 <article class="category-item">
                     <a href="#watches">
-                        <img src="images/watch.jpg" alt="Watches Category">
+                        <img src="images/watch.jpg" alt="Watches Category" loading="lazy">
                         <h3>Watches</h3>
                     </a>
                 </article>
                 <article class="category-item">
                     <a href="#home-decor">
-                        <img src="images/decor.jpg" alt="Home Decor Category">
+                        <img src="images/decor.jpg" alt="Home Decor Category" loading="lazy">
                         <h3>Home Decor</h3>
                     </a>
                 </article>
                 <article class="category-item">
                     <a href="#accessories">
-                        <img src="images/accessories.jpg" alt="Accessories Category">
+                        <img src="images/accessories.jpg" alt="Accessories Category" loading="lazy">
                         <h3>Accessories</h3>
                     </a>
                 </article>
@@ -224,12 +157,27 @@
 
         <!-- Featured Products Section -->
         <section id="featured" class="featured-products">
-            <h2>Featured Products</h2>
-            <div class="product-grid">
+            <div class="section-header">
+                <h2>Featured Products</h2>
+                <div class="sort-container">
+                    <label for="sort-products">Sort By:</label>
+                    <select id="sort-products" class="sort-select">
+                        <option value="newest">Newest</option>
+                        <option value="price-asc">Price: Low to High</option>
+                        <option value="price-desc">Price: High to Low</option>
+                        <option value="rating">Highest Rated</option>
+                    </select>
+                </div>
+            </div>
+            <div class="product-grid" id="product-grid">
                 <!-- Product 1 -->
-                <article class="product-card">
+                <article class="product-card" data-category="electronics">
                     <div class="product-image-wrapper">
-                        <img src="images/headphones.jpg" alt="Wireless Headphones">
+                        <span class="product-badge badge-new">New</span>
+                        <button class="wishlist-btn" aria-label="Toggle Wishlist" data-title="Wireless Headphones">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <img src="images/headphones.jpg" alt="Wireless Headphones" loading="lazy">
                     </div>
                     <h3>Wireless Headphones</h3>
                     <p class="product-desc">Premium wireless headphones with immersive sound quality.</p>
@@ -242,9 +190,13 @@
                 </article>
 
                 <!-- Product 2 -->
-                <article class="product-card">
+                <article class="product-card" data-category="electronics">
                     <div class="product-image-wrapper">
-                        <img src="images/smartwatch.jpg" alt="Smart Watch">
+                        <span class="product-badge badge-new">New</span>
+                        <button class="wishlist-btn" aria-label="Toggle Wishlist" data-title="Smart Watch">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <img src="images/smartwatch.jpg" alt="Smart Watch" loading="lazy">
                     </div>
                     <h3>Smart Watch</h3>
                     <p class="product-desc">Track fitness, notifications, and daily activities.</p>
@@ -257,9 +209,12 @@
                 </article>
 
                 <!-- Product 3 -->
-                <article class="product-card">
+                <article class="product-card" data-category="fashion footwear">
                     <div class="product-image-wrapper">
-                        <img src="images/running-shoes.jpg" alt="Running Shoes">
+                        <button class="wishlist-btn" aria-label="Toggle Wishlist" data-title="Running Shoes">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <img src="images/running-shoes.jpg" alt="Running Shoes" loading="lazy">
                     </div>
                     <h3>Running Shoes</h3>
                     <p class="product-desc">Lightweight running shoes for comfort and performance.</p>
@@ -272,9 +227,13 @@
                 </article>
 
                 <!-- Product 4 -->
-                <article class="product-card">
+                <article class="product-card" data-category="accessories bags">
                     <div class="product-image-wrapper">
-                        <img src="images/backpack.jpg" alt="Backpack">
+                        <span class="product-badge badge-discount">10% OFF</span>
+                        <button class="wishlist-btn" aria-label="Toggle Wishlist" data-title="Backpack">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <img src="images/backpack.jpg" alt="Backpack" loading="lazy">
                     </div>
                     <h3>Backpack</h3>
                     <p class="product-desc">Durable backpack for travel, work, and college.</p>
@@ -287,9 +246,12 @@
                 </article>
 
                 <!-- Product 5 -->
-                <article class="product-card">
+                <article class="product-card" data-category="electronics accessories">
                     <div class="product-image-wrapper">
-                        <img src="images/mouse.jpg" alt="Gaming Mouse">
+                        <button class="wishlist-btn" aria-label="Toggle Wishlist" data-title="Gaming Mouse">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <img src="images/mouse.jpg" alt="Gaming Mouse" loading="lazy">
                     </div>
                     <h3>Gaming Mouse</h3>
                     <p class="product-desc">High-precision RGB gaming mouse for smooth gameplay.</p>
@@ -302,9 +264,12 @@
                 </article>
 
                 <!-- Product 6 -->
-                <article class="product-card">
+                <article class="product-card" data-category="electronics accessories">
                     <div class="product-image-wrapper">
-                        <img src="images/keyboard.jpg" alt="Mechanical Keyboard">
+                        <button class="wishlist-btn" aria-label="Toggle Wishlist" data-title="Mechanical Keyboard">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <img src="images/keyboard.jpg" alt="Mechanical Keyboard" loading="lazy">
                     </div>
                     <h3>Mechanical Keyboard</h3>
                     <p class="product-desc">Responsive mechanical keyboard with tactile keys.</p>
@@ -317,9 +282,13 @@
                 </article>
 
                 <!-- Product 7 -->
-                <article class="product-card">
+                <article class="product-card" data-category="accessories fashion">
                     <div class="product-image-wrapper">
-                        <img src="images/wallet.jpg" alt="Leather Wallet">
+                        <span class="product-badge badge-discount">10% OFF</span>
+                        <button class="wishlist-btn" aria-label="Toggle Wishlist" data-title="Leather Wallet">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <img src="images/wallet.jpg" alt="Leather Wallet" loading="lazy">
                     </div>
                     <h3>Leather Wallet</h3>
                     <p class="product-desc">Premium leather wallet with multiple card slots.</p>
@@ -332,9 +301,13 @@
                 </article>
 
                 <!-- Product 8 -->
-                <article class="product-card">
+                <article class="product-card" data-category="accessories fashion">
                     <div class="product-image-wrapper">
-                        <img src="images/sunglasses.jpg" alt="Sunglasses">
+                        <span class="product-badge badge-sale">Sale</span>
+                        <button class="wishlist-btn" aria-label="Toggle Wishlist" data-title="Sunglasses">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <img src="images/sunglasses.jpg" alt="Sunglasses" loading="lazy">
                     </div>
                     <h3>Sunglasses</h3>
                     <p class="product-desc">Stylish UV-protection sunglasses for everyday use.</p>
@@ -346,14 +319,18 @@
                     <button type="button" class="add-to-cart-btn">Add to Cart</button>
                 </article>
             </div>
+            <div id="no-products-message"
+                style="display: none; text-align: center; font-size: 1.2rem; color: var(--text-secondary); margin-top: 2rem;">
+                No matching products found.
+            </div>
         </section>
 
         <!-- Special Offers Section -->
         <section id="offers" class="offers">
-            <img src="images/offer-banner.jpg" alt="Mega Clearance Sale Promo" class="offer-image">
+            <img src="images/offer-banner.jpg" alt="Mega Clearance Sale Promo" class="offer-image" loading="lazy">
             <div class="offer-content">
                 <h2>Mega Clearance Sale</h2>
-                <h3>Get up to 50% Off!</h3>
+                <h3>Get up to 30% Off!</h3>
                 <p>Upgrade your collection with our exclusive deals. Limited time offer, hurry up and grab your
                     favorites now.</p>
                 <a href="#featured" class="btn btn-promo">Shop Now</a>
@@ -363,8 +340,9 @@
         <!-- About Section -->
         <section id="about" class="about-section">
             <h2>About ShopHub</h2>
-            <p class="about-text">ShopHub is a modern online shopping platform offering quality products, secure
-                payments, fast delivery and affordable prices.</p>
+            <p class="about-text">ShopHub is your trusted online shopping destination offering premium electronics,
+                fashion, accessories, footwear, and lifestyle products. We focus on quality products, secure payments,
+                fast delivery, and excellent customer support to provide a seamless shopping experience.</p>
             <div class="features-grid">
                 <article class="feature-card">
                     <i class="fas fa-lock"></i>
@@ -390,8 +368,8 @@
                     <h3>Subscribe to our Newsletter</h3>
                     <p>Get the latest updates on new products and upcoming sales directly in your inbox.</p>
                 </div>
-                <form class="newsletter-form" action="#" method="POST">
-                    <input type="email" placeholder="Enter your email address" required aria-label="Email Address">
+                <form class="newsletter-form" action="#" method="POST" novalidate>
+                    <input type="email" placeholder="Enter your email address" aria-label="Email Address">
                     <button type="submit" class="btn btn-primary">Subscribe</button>
                 </form>
             </div>
@@ -475,6 +453,50 @@
         </div>
     </footer>
 
+    <!-- Quick View Modal -->
+    <div class="quick-view-overlay" id="quick-view-overlay"></div>
+    <div class="quick-view-modal" id="quick-view-modal" role="dialog" aria-modal="true" aria-labelledby="qv-title">
+        <button class="close-qv-btn" id="close-qv-btn" aria-label="Close Quick View">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="qv-content">
+            <div class="qv-image-col">
+                <img id="qv-img" loading="lazy" src="" alt="Product Image">
+            </div>
+            <div class="qv-details-col">
+                <h2 id="qv-title">Product Name</h2>
+                <div class="rating" id="qv-rating"></div>
+                <p class="price" id="qv-price">₹0</p>
+                <p class="qv-desc" id="qv-desc">Description</p>
+                <div class="qv-actions">
+                    <button type="button" class="btn btn-primary" id="qv-add-cart">Add to Cart</button>
+                    <button type="button" class="btn btn-outline" id="qv-wishlist">
+                        <i class="far fa-heart"></i> Add to Wishlist
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wishlist Sidebar -->
+    <div class="wishlist-overlay" id="wishlist-overlay"></div>
+    <div class="wishlist-sidebar" id="wishlist-sidebar">
+        <div class="wishlist-sidebar-header">
+            <h2>Your Wishlist</h2>
+            <button class="close-wishlist-btn" id="close-wishlist-btn" aria-label="Close Wishlist">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="wishlist-sidebar-content" id="wishlist-sidebar-content">
+            <div class="wishlist-empty-state" id="wishlist-empty-state">
+                <p style="font-size: 1.5rem; margin-bottom: 0.5rem;">❤️</p>
+                <p>Your wishlist is empty</p>
+                <button class="btn btn-primary" onclick="document.getElementById('close-wishlist-btn').click()"
+                    style="margin-top: 1rem;">Explore Products</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Cart Sidebar -->
     <div class="cart-overlay" id="cart-overlay"></div>
     <div class="cart-sidebar" id="cart-sidebar">
@@ -486,16 +508,28 @@
         </div>
         <div class="cart-sidebar-content" id="cart-sidebar-content">
             <div class="cart-empty-state" id="cart-empty-state">
-                <p>Your cart is empty.</p>
+                <p style="font-size: 1.5rem; margin-bottom: 0.5rem;">🛒</p>
+                <p>Your cart is empty</p>
+                <button class="btn btn-primary continue-shopping-btn" style="margin-top: 1.5rem;">Continue
+                    Shopping</button>
             </div>
             <div class="cart-items" id="cart-items"></div>
         </div>
-        <div class="cart-sidebar-footer">
-            <div class="cart-total">
+        <div class="cart-sidebar-footer" id="cart-sidebar-footer">
+            <div class="cart-summary-row">
+                <span>Subtotal:</span>
+                <span id="cart-subtotal-price">₹0</span>
+            </div>
+            <div class="cart-summary-row text-success">
+                <span>Delivery:</span>
+                <span>Free</span>
+            </div>
+            <div class="cart-total mt-2" style="padding-top: 1rem; border-top: 1px solid #e2e8f0; margin-top: 1rem;">
                 <span>Total:</span>
                 <span id="cart-total-price">₹0</span>
             </div>
-            <button class="btn btn-primary checkout-btn">Checkout</button>
+            <button class="btn btn-primary checkout-btn" style="width: 100%; margin-bottom: 0.8rem;">Checkout</button>
+            <button class="btn btn-outline continue-shopping-btn" style="width: 100%;">Continue Shopping</button>
         </div>
     </div>
 
@@ -507,162 +541,8 @@
     <!-- Toast Notification Container -->
     <div id="toast-container" class="toast-container"></div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Cart State Management
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const cartBadge = document.querySelector('.cart-badge');
-            const addToCartBtns = document.querySelectorAll('.add-to-cart-btn');
-            const toastContainer = document.getElementById('toast-container');
-
-            // Cart Sidebar Elements
-            const cartIcon = document.querySelector('.cart.icon-link');
-            const cartOverlay = document.getElementById('cart-overlay');
-            const cartSidebar = document.getElementById('cart-sidebar');
-            const closeCartBtn = document.getElementById('close-cart-btn');
-            const cartItemsContainer = document.getElementById('cart-items');
-            const cartEmptyState = document.getElementById('cart-empty-state');
-            const cartTotalPrice = document.getElementById('cart-total-price');
-
-            // Initialize cart UI on load
-            updateCartUI();
-
-            // Toggle Sidebar
-            cartIcon.addEventListener('click', (e) => {
-                e.preventDefault();
-                openCart();
-            });
-
-            closeCartBtn.addEventListener('click', closeCart);
-            cartOverlay.addEventListener('click', closeCart);
-
-            function openCart() {
-                cartSidebar.classList.add('open');
-                cartOverlay.classList.add('show');
-            }
-
-            function closeCart() {
-                cartSidebar.classList.remove('open');
-                cartOverlay.classList.remove('show');
-            }
-
-            // Add to Cart Logic
-            addToCartBtns.forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    const productCard = e.target.closest('.product-card');
-                    const title = productCard.querySelector('h3').textContent;
-                    const priceText = productCard.querySelector('.price').textContent;
-                    const price = parseFloat(priceText.replace('₹', '').replace(',', ''));
-                    const imageSrc = productCard.querySelector('img').src;
-
-                    const existingItem = cart.find(item => item.title === title);
-                    if (existingItem) {
-                        existingItem.quantity += 1;
-                    } else {
-                        cart.push({ title, price, imageSrc, quantity: 1 });
-                    }
-
-                    saveCart();
-                    updateCartUI();
-                    showToast('✔ Product added to cart');
-                });
-            });
-
-            // Update Cart UI
-            function updateCartUI() {
-                // Update badge
-                const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
-                cartBadge.textContent = totalItems;
-
-                // Update items
-                cartItemsContainer.innerHTML = '';
-                if (cart.length === 0) {
-                    cartEmptyState.classList.add('show');
-                } else {
-                    cartEmptyState.classList.remove('show');
-                    cart.forEach((item, index) => {
-                        const cartItem = document.createElement('div');
-                        cartItem.className = 'cart-item';
-                        cartItem.innerHTML = `
-                            <img src="${item.imageSrc}" alt="${item.title}">
-                            <div class="cart-item-details">
-                                <h4 class="cart-item-title">${item.title}</h4>
-                                <span class="cart-item-price">₹${item.price}</span>
-                                <span class="cart-item-quantity">Qty: ${item.quantity}</span>
-                            </div>
-                            <button class="remove-cart-item-btn" data-index="${index}">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        `;
-                        cartItemsContainer.appendChild(cartItem);
-                    });
-                }
-
-                // Update total
-                const total = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
-                cartTotalPrice.textContent = `₹${total}`;
-
-                // Add remove listeners
-                const removeBtns = document.querySelectorAll('.remove-cart-item-btn');
-                removeBtns.forEach(btn => {
-                    btn.addEventListener('click', (e) => {
-                        const index = e.currentTarget.getAttribute('data-index');
-                        cart.splice(index, 1);
-                        saveCart();
-                        updateCartUI();
-                    });
-                });
-            }
-
-            function saveCart() {
-                localStorage.setItem('cart', JSON.stringify(cart));
-            }
-
-            // Back to Top functionality
-            const backToTopBtn = document.getElementById('back-to-top');
-
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 300) {
-                    backToTopBtn.classList.add('show');
-                } else {
-                    backToTopBtn.classList.remove('show');
-                }
-            });
-
-            backToTopBtn.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-
-            // Newsletter form functionality
-            const newsletterForm = document.querySelector('.newsletter-form');
-            if (newsletterForm) {
-                newsletterForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    const emailInput = newsletterForm.querySelector('input[type="email"]');
-                    if (emailInput && emailInput.value.trim() !== '') {
-                        showToast('Thank you for subscribing!');
-                        emailInput.value = '';
-                    }
-                });
-            }
-
-            function showToast(message) {
-                const toast = document.createElement('div');
-                toast.className = 'toast';
-                toast.textContent = message;
-                toastContainer.appendChild(toast);
-
-                // Remove after 3 seconds
-                setTimeout(() => {
-                    toast.classList.add('hide');
-                    setTimeout(() => toast.remove(), 300);
-                }, 3000);
-            }
-        });
-    </script>
+    
+    <script src="script.js" defer></script>
 </body>
 
 </html>
