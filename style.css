@@ -107,11 +107,13 @@ img {
 
 }
 
-.container {
+.container,
+.categories,
+.featured-products {
     width: 100%;
     max-width: var(--container-width);
     margin: 0 auto;
-    padding: 0 var(--spacing-md);
+    padding: 0 24px;
 
 }
 
@@ -981,6 +983,7 @@ nav ul li a.active::after {
     overflow: hidden;
     box-shadow: 0 15px 40px rgba(139, 92, 246, 0.25);
     padding: 0;
+    margin-top: 80px;
 
 }
 
